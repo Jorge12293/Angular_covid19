@@ -1,0 +1,137 @@
+/*======================================== 
+ESCRITORIO(XL revisamos en 1366px)
+=========================================*/ 
+
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+	border: none;
+	outline: none;
+}
+
+.contendorPaises{
+	position: relative;
+	padding: 10px;
+//	background: blueviolet;
+}
+
+.contendorMapa{
+	position: relative;
+	padding: 10px;
+	//background: red;
+}
+
+
+.titulo-mapa{
+	color: white;
+	background: rgba( 0, 0, 0, .5);
+	position: relative;
+	z-index: 5;
+
+}
+
+#map {
+   // height: 88.1vh;
+   height: 46.3vh;
+    position: relative;
+    z-index: 1;
+    top: -16px;
+}
+
+.chart-container{
+	height: 30.5vh;
+}
+
+.contendorDatos{
+	position: relative;
+	padding: 10px;
+	//background:yellow;
+}
+
+.chart-containerTop{
+
+	height: 50.7vh;
+	margin: 0px;
+}
+
+
+
+.my-custom-scrollbar {
+    position: relative;
+    height: 75vh;
+    overflow: auto;
+}
+.table-wrapper-scroll-y {
+   display: block;
+}
+
+.tablaDatosGenerales{
+	position: relative;
+	width: 100%;
+}
+.tablaBorder th{
+	border:1px solid #343a40;
+}
+
+.fondoTituloTabla{
+	background: #3065ab;
+}
+
+.tablaFondoPlomo{
+	background: #c7c7c7;
+}
+.tablaFondoBlanco{
+	background: white;
+}
+.mapa-ubicacion{
+	height: 89vh;
+	//padding: 20px;
+}
+
+
+
+.labelConfirmados{
+	color:#FFA81E;
+}
+
+.labelMuertos{
+	color:#FF4500;
+}
+
+.labelRecuperados{
+	color:#32CD32;
+}
+
+.texto{
+	color: white;
+}
+
+
+
+
+
+
+
+/*======================================== 
+TABLET HORIZONTAL(LG revisamos en 1024px)
+=========================================*/ 
+/*======================================== 
+TABLET VERTICAL(MD revisamos en 768px)
+=========================================*/ 
+/*======================================== 
+MOVIL HORIZONTAL(SM revisamos en 576px)
+=========================================*/ 
+/*======================================== 
+MOVIL VERTICAL(Revisamos en 320px)
+=========================================*/
+@media (max-width:575px){
+	.my-custom-scrollbar {
+		height: 25vh;
+	}
+
+	.contendorPaises th{
+		width: 100vh;
+	}
+}

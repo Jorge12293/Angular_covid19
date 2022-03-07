@@ -1,0 +1,141 @@
+
+
+<div class="row">
+    <!-----------------------------
+    CASOS PAISES
+    ------------------------------>
+    <div class="col-12 col-sm-4 col-lg-2 bg-black" *ngIf="paises.length > 0">
+      <div class="contendorPaises">
+        <table class="table table-dark mr-0 ">
+          <thead>
+            <tr>
+              <th class="text-center fondoTituloTabla" scope="col">PAISES</th>
+            </tr>
+          </thead>
+           <tbody class="table-wrapper-scroll-y my-custom-scrollbar ">
+             <tr *ngFor="let pais of paises; let i = index">
+               <th class="text-center">
+                <button class="btn btn-primary btn-block" title="Ver Ubicación"
+                       (click)="actualizarUbicacion(pais.location.lat,pais.location.lng)">
+                       {{pais.countryregion}}
+                       <i class="fas fa-search-location"></i>
+                 </button>
+        
+                 <div class="labelConfirmados"> Confirmados : <small class="texto">{{pais.confirmed}} </small>  </div>
+                 <div class="labelMuertos"> Muertes : <small class="texto"> {{pais.deaths}} </small> </div>
+                 <div class="labelRecuperados"> Recuperados : <small class="texto">{{pais.recovered}}</small>  </div>
+                </th>
+             </tr>
+           </tbody>
+         </table>
+      </div>
+    </div>
+    <!-----------------------------
+    MAPA
+    ------------------------------>
+    <div class="col-12 col-sm-8 col-lg-6 mapa-ubicacion">
+      <div class="contendorMapa">
+          <h4 class="text-center titulo-mapa">Mapa del Mundo</h4>
+          <div id="map"
+              leaflet
+              (leafletMapReady)="onMapReady($event)"
+              [leafletOptions]="mapOptions">
+          </div>
+          <div style="border: 1px solid white;">
+            <h6 class="text-white text-center" style="background: #3065AB">Comparación de Casos entre Paises </h6>
+            <div class="chart-container">
+              <ngx-charts-bar-horizontal
+                [scheme]="colorScheme"
+                [results]="result"
+                [gradient]="gradient"
+                [xAxis]="showXAxis"
+                [yAxis]="showYAxis"
+                [legend]="showLegend"
+                [showXAxisLabel]="showXAxisLabel"
+                [showYAxisLabel]="showYAxisLabel"
+                [xAxisLabel]="xAxisLabel"
+                [yAxisLabel]="yAxisLabel"
+                (select)="onSelect($event)"
+                style="fill:white">
+              </ngx-charts-bar-horizontal>
+            </div>
+          
+          </div>
+      </div>
+
+    </div>
+    <!-----------------------------
+    INFORMACION GENERRAL
+    ------------------------------>
+  <div class="col-12 col-lg-4 informacion-general" style="padding: 10px;">
+    <div *ngIf="resultadoGeneral">
+      <div class="row">
+        <div class="col-12 col-md-6 col-lg-12">
+          <h5 class="text-center text-white fondoTituloTabla">Datos Generales</h5>
+          <table class="table text-center tablaBorder ">
+            <thead class="tablaFondoPlomo">
+              <tr>
+                <th class="labelConfirmados" scope="col">Confirmados</th>
+                <th class="labelMuertos" scope="col">Muertos</th>
+                <th class="labelRecuperados" scope="col">Recuperados</th>
+              </tr>
+            </thead>
+            <tbody class="tablaFondoBlanco">
+              <tr>
+                  <th >{{resultadoGeneral.confirmed}}</th>
+                  <th >{{resultadoGeneral.deaths}}</th>
+                  <th >{{resultadoGeneral.recovered}}</th>
+              </tr>
+            </tbody>
+          </table> 
+        </div>
+        <div class="col-12 col-md-6 col-lg-12" style="border: 1px solid white;">
+          <h5 class="text-center text-white mt-1" style="background: #3065AB">Paises con mas casos Confirmados </h5>
+          <div class="chart-containerTop">
+            <ngx-charts-pie-chart
+              [scheme]="colorScheme"
+              [results]="result2"
+              [gradient]="gradient"
+              [legend]="showLegend2"
+              [legendPosition]="legendPosition"
+              [labels]="showLabels"
+              [doughnut]="isDoughnut"
+              (select)="onSelect2($event)"
+              (activate)="onActivate($event)"
+              (deactivate)="onDeactivate($event)"
+              style="fill:white"
+              >
+            </ngx-charts-pie-chart>
+          </div>
+        </div>        
+        <div class="col-12">
+          <table class="table text-center tablaBorder ">
+            <thead class="tablaFondoPlomo">
+              <tr>
+                <th  scope="col">Información Actualizada</th>
+              </tr>
+            </thead>
+            <tbody class="tablaFondoBlanco">
+              <tr>
+                  <!--<th >{{fechaActaulizadaFormato}}</th>-->
+                  <th > 23 / Marzo / 2021</th>
+              </tr>
+            </tbody>
+          </table> 
+        </div>
+      </div>
+    </div>  
+    
+  
+  </div>
+
+
+</div>
+
+
+
+
+  <!--  <div class="col-2" *ngIf="paises.length === 0">
+      <h1>Cargando Paises</h1>
+      <i class="fa fa-sync fa-spin"></i>
+    </div> -->
