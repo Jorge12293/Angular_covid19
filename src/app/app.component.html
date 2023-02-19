@@ -1,7 +1,9 @@
-<div *ngIf="dataCasosPais.length === 0">
+
+<div *ngIf="loading">
     <app-loader></app-loader>  
 </div>
-<div *ngIf="dataCasosPais.length > 0">
+
+<div *ngIf="!loading">
     <app-navbar></app-navbar>
     <router-outlet></router-outlet>
     <app-footer class="footer"></app-footer>

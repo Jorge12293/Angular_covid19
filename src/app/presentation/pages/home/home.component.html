@@ -1,0 +1,47 @@
+
+
+<div class="row">
+    <!-----------------------------
+    CASOS PAISES
+    ------------------------------>
+    <div class="col-12 col-sm-4 col-lg-2 bg-black" *ngIf="listCovidCountry.length > 0">
+      <app-slider-list-country
+        [listCovidCountry]="listCovidCountry"
+        (updatePointMapEvent)="updatePointMapEvent($event)"
+      ></app-slider-list-country>
+    </div>
+    <!-----------------------------
+    MAPA
+    ------------------------------>
+    <div class="col-12 col-sm-8 col-lg-6 map-location">
+      <div class="containerMap">
+          <h4 class="text-center title-map">Mapa del Mundo</h4>
+          <div id="map" leaflet (leafletMapReady)="onMapReady($event)" [leafletOptions]="mapOptions">
+          </div>
+          <app-compare-across-countries
+             [listCovidCountry]="listCovidCountry"
+          ></app-compare-across-countries>      
+      </div>
+
+    </div>
+    <!-----------------------------
+    INFORMACION GENERRAL
+    ------------------------------>
+  <div class="col-12 col-lg-4 informacion-general" style="padding: 10px;">
+    <div>
+      <div class="row">
+        <div class="col-12 col-md-6 col-lg-12">
+          <app-data-general>
+          </app-data-general>
+        </div>
+        <div class="col-12 col-md-6 col-lg-12" style="border: 1px solid white;">
+          <app-country-more-cases>
+          </app-country-more-cases>
+        </div>        
+        <div class="col-12">
+          <app-date-update></app-date-update> 
+        </div>
+      </div>
+    </div>  
+  </div>
+</div>

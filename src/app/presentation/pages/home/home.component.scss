@@ -1,0 +1,51 @@
+/*======================================== 
+ESCRITORIO(XL revisamos en 1366px)
+=========================================*/ 
+
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+	border: none;
+	outline: none;
+}
+
+
+.containerMap{
+	position: relative;
+	padding: 10px;
+}
+
+
+.title-map{
+	color: white;
+	background: rgba( 0, 0, 0, .5);
+	position: relative;
+	z-index: 5;
+
+}
+
+#map {
+  height: 46.3vh;
+  position: relative;
+  z-index: 1;
+  top: -16px;
+}
+
+.chart-container{
+	height: 30.5vh;
+}
+
+.map-location{
+	height: 89vh;
+}
+
+
+
+
+
+
+
+
+

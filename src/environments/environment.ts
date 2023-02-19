@@ -3,7 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  urlApiCovid : 'https://master-covid-19-api-laeyoung.endpoint.ainize.ai',
 };
 
 /*

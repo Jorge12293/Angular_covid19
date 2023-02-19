@@ -1,0 +1,30 @@
+
+  <div class="containerCountry">
+    <table class="table table-dark mr-0 ">
+      <thead>
+        <tr>
+          <th class="text-center backgroundTitleTable" scope="col">PAISES</th>
+        </tr>
+      </thead>
+        <tbody class="table-wrapper-scroll-y my-custom-scrollbar ">
+
+          <tr *ngFor="let covidCountry of listCovidCountry; let i = index">
+            <th class="text-center">
+          
+              <button 
+                class="btn btn-primary btn-block"
+                (click)="updatePointMap(covidCountry)" 
+                title="Ver Ubicación">
+                      {{covidCountry.countryRegion}}
+                      <i class="fas fa-search-location"></i>
+              </button>
+  
+              <div class="labelConfirmed"> Confirmados : <small class="textItem">{{covidCountry.confirmed}} </small>  </div>
+              <div class="labelDeaths"> Muertes : <small class="textItem"> {{covidCountry.deaths}} </small> </div>
+              <div class="labelRecovered"> Recuperados : <small class="textItem">{{covidCountry.recovered}}</small>  </div>
+            </th>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+

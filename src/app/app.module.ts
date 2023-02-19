@@ -9,9 +9,8 @@ import {LeafletModule} from '@asymmetrik/ngx-leaflet';
 import { AppComponent } from './app.component';
 
 // Componentes
-import { NavbarComponent } from './navbar/navbar.component';
-import { HomeComponent } from './home/home.component';
-import { FooterComponent } from './footer/footer.component';
+import { NavbarComponent } from './@theme/navbar/navbar.component';
+import { FooterComponent } from './@theme/footer/footer.component';
 
 //Grafica
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -22,7 +21,14 @@ import {FormsModule} from '@angular/forms';
 
 import { HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
 import {DatePipe} from "@angular/common";
-import { LoaderComponent } from './loader/loader.component';
+import { LoaderComponent } from './@theme/loader/loader.component';
+import { HomeComponent } from './presentation/pages/home/home.component';
+import { SliderListCountryComponent } from './presentation/components/slider-list-country/slider-list-country.component';
+import { CompareAcrossCountriesComponent } from './presentation/components/compare-across-countries/compare-across-countries.component';
+import { CountryMoreCasesComponent } from './presentation/components/country-more-cases/country-more-cases.component';
+import { DataGeneralComponent } from './presentation/components/data-general/data-general.component';
+import { DateUpdateComponent } from './presentation/components/date-update/date-update.component';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +36,12 @@ import { LoaderComponent } from './loader/loader.component';
     NavbarComponent,
     HomeComponent,
     FooterComponent,
-    LoaderComponent
+    LoaderComponent,
+    SliderListCountryComponent,
+    CompareAcrossCountriesComponent,
+    CountryMoreCasesComponent,
+    DataGeneralComponent,
+    DateUpdateComponent
   ],
   imports: [
     BrowserModule,

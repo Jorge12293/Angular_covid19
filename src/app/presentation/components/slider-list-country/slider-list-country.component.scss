@@ -1,0 +1,45 @@
+.containerCountry{
+	position: relative;
+	padding: 10px;
+}
+
+
+.my-custom-scrollbar {
+    position: relative;
+    height: 75vh;
+    overflow: auto;
+}
+.table-wrapper-scroll-y {
+   display: block;
+}
+
+.backgroundTitleTable{
+	background: #3065ab;
+}
+
+
+.labelConfirmed{
+	color:#FFA81E;
+}
+
+.labelDeaths{
+	color:#FF4500;
+}
+
+.labelRecovered{
+	color:#32CD32;
+}
+
+.textItem{
+	color: white;
+}
+
+@media (max-width:575px){
+	.my-custom-scrollbar {
+		height: 25vh;
+	}
+	.containerCountry th{
+		width: 100vh;
+	}
+}
+

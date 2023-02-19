@@ -1,5 +1,4 @@
 import { Component} from '@angular/core';
-import { CasosService } from './services/casos.service';
 
 @Component({
   selector: 'app-root',
@@ -7,38 +6,15 @@ import { CasosService } from './services/casos.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent{
-  title = 'covid19';
-  dataCasosPais: any[any] = [];
-  dataCasosPais2: any[any] = [];
+  title   = 'covid19';
+  loading : boolean=true;
 
-  constructor(private datoseService : CasosService) { 
-
+  constructor() { 
     setTimeout( () => { 
-
-      this.datoseService.getDataCovid()
-      .subscribe(data=>{
-        this.dataCasosPais=data;
-      });
-
-      this.datoseService.getResultadoGeneral()
-      .subscribe(); 
-      /*
-      this.datoseService.getCasosPais()
-      .subscribe(data=>{
-           this.dataCasosPais2=data;
-       });
-       */
-
+      this.loading=false;
     }, 1500 );
-  
-
   }
-
 }
 
-// Instalado paquetes
-//npm install @swimlane/ngx-charts --save
-//npm install @angular/cdk --save
 
 
-//https://stackblitz.com/edit/swimlane-pie-chart?embed=1&file=app/app.component.ts

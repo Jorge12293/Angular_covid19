@@ -1,0 +1,20 @@
+<div style="border: 1px solid white;">
+    <h6 class="text-white text-center" style="background: #3065AB">Comparación de Casos entre Paises </h6>
+    <div class="chart-container">
+      <ngx-charts-bar-horizontal
+        [scheme]="colorScheme"
+        [results]="listDataDrawCountry"
+        [gradient]="gradient"
+        [xAxis]="showXAxis"
+        [yAxis]="showYAxis"
+        [legend]="showLegend"
+        [showXAxisLabel]="showXAxisLabel"
+        [showYAxisLabel]="showYAxisLabel"
+        [xAxisLabel]="xAxisLabel"
+        [yAxisLabel]="yAxisLabel"
+        (select)="onSelect($event)"
+        style="fill:white">
+      </ngx-charts-bar-horizontal>
+    </div>
+    
+  </div>
