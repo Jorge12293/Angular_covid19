@@ -18,13 +18,15 @@ export abstract class Mapper<I, O> {
 
 export class ApiCovidService {
 
-  private urlListCountry :string=`${environment.urlApiCovid}/jhu-edu/latest`;
+  private urlListCountry :string=`${environment.urlApiCovid}/jhu-edu/latest/`;
+  private urlListCountryLocal :string='../../assets/data/api_covid_country.json';
 
   constructor(private http: HttpClient) { }
 
 
   getListCovidCountry(): Observable<CovidCountry[]>{
-      return this.http.get<CovidCountry[]>(this.urlListCountry).pipe(
+      return this.http.get<CovidCountry[]>(this.urlListCountry)
+      .pipe(
         map( resp => {
             resp = resp.map(covidCountry=>{
               return {
@@ -39,6 +41,21 @@ export class ApiCovidService {
   }
 
 
+  getListCovidCountryLocal(): Observable<CovidCountry[]>{
+    return this.http.get<CovidCountry[]>(this.urlListCountryLocal)
+    .pipe(
+      map( resp => {
+          resp = resp.map(covidCountry=>{
+            return {
+              countryRegion:covidCountry.countryregion,
+              ...covidCountry,
+            };
+          });
+          return ConvertListCovidCountry.toAPICovidListCountry(JSON.stringify(resp));
+        }
+      )
+  );
+}
 
 }
 

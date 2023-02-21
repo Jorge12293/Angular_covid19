@@ -18,30 +18,6 @@ export class CountryMoreCasesComponent implements OnInit {
 
   listDataDrawCountry: CovidCountryItem[]=[];
 
-  /*
-  listDataDrawCountry: CovidCountry[]=[
-    {
-      "name: " ",
-      "value": 0
-    },
-    {
-      "name": " ",
-      "value": 0
-    },
-    {
-      "name": " ",
-      "value": 0
-    },
-    {
-      "name": " ",
-      "value": 0
-    },
-    {
-      "name": " ",
-      "value": 0
-    }
-  ];
-*/
   constructor() {}
 
   ngOnInit(): void {

@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ViewChild, ViewChildren } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ViewChildren, Input } from '@angular/core';
 import {latLng, MapOptions, tileLayer, Map, Marker, icon} from 'leaflet';
 import { DatePipe } from "@angular/common";
 import { ApiCovidService } from '../../../data/services/api-covid.service';
@@ -13,12 +13,12 @@ import { DateUpdateComponent } from '../../components/date-update/date-update.co
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  @Input() listCovidCountry:CovidCountry[]=[];
 
   @ViewChild(CountryMoreCasesComponent) countryMoreCasesComponent:CountryMoreCasesComponent;
   @ViewChild(DataGeneralComponent) dataGeneralComponent:DataGeneralComponent;
   @ViewChild(DateUpdateComponent) dateUpdateComponent:DateUpdateComponent;
   
-  listCovidCountry:CovidCountry[]=[];
   
   map: Map;
   mapOptions: MapOptions;
@@ -35,27 +35,20 @@ export class HomeComponent implements OnInit {
   
   constructor(
     private datePipe: DatePipe,
-    private apiCovidService:ApiCovidService,
   ) {}
 
 
   ngOnInit(): void {
     this.initializeMapOptions();
-    this.apiCovidService.getListCovidCountry().subscribe(
-      (resp:CovidCountry[])=>{
-        this.listCovidCountry=resp;
-        this.loadDataGraphic(this.listCovidCountry);
-      },
-      error=>{
-        console.log(error);
-      }
-    );
+    setTimeout( () => { 
+      this.loadDataGraphic(this.listCovidCountry);
+    }, 1000 );
  }
 
  loadDataGraphic(listCovidCountry:CovidCountry[]){
   this.countryMoreCasesComponent.loadDataCountry(listCovidCountry);
   this.dataGeneralComponent.loadDataTotalCountry(listCovidCountry);
-  let dateUpdate = this.datePipe.transform(listCovidCountry[0].lastupdate,"M/d/yy");
+  let dateUpdate = this.datePipe.transform(listCovidCountry[0].lastupdate,"dd - MMM - yyy");
   this.dateUpdateComponent.updateDate(dateUpdate);
  }
 
